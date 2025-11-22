@@ -53,3 +53,11 @@ jobs:
           path: |
             **/rcmdcheck/*.Rcheck
             *.tar.gz
+      
+      - name: Notify OpenCPU Cloud
+        if: ${{ success() }}
+        run: |
+          curl -sS -X POST https://cloud.opencpu.org/ocpu/webhook \
+            -H "Content-Type: application/json" \
+            -d "{\"repository\":\"${{ github.repository }}\",\"commit\":\"${{ github.sha }}\",\"status\":\"success\"}"
+
