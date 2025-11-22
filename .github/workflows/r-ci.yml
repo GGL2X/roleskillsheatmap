@@ -38,7 +38,7 @@ jobs:
 
       - name: Check package
         run: |
-          Rscript -e 'rcmdcheck::rcmdcheck(".", "--no-manual", "--as-cran", error_on = "warning")'
+          Rscript -e 'rcmdcheck::rcmdcheck(".", args = c("--no-manual", "--as-cran"), error_on = "warning")'
 
       - name: Build package tarball
         if: ${{ success() }}
