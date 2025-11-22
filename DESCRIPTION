@@ -11,3 +11,5 @@ Encoding: UTF-8
 Imports:
     ggplot2
 RoxygenNote: 7.3.3
+URL: https://github.com/GGL2X/roleskillsheatmap
+BugReports: https://github.com/GGL2X/roleskillsheatmap/issues
