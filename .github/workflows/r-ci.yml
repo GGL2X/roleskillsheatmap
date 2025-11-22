@@ -60,4 +60,3 @@ jobs:
           curl -v -X POST https://cloud.opencpu.org/ocpu/webhook \
             -H "Content-Type: application/json" \
             -d "{\"repository\":{\"full_name\":\"${{ github.repository }}\",\"url\":\"https://github.com/${{ github.repository }}\"},\"commit\":\"${{ github.sha }}\",\"ref\":\"${{ github.ref }}\",\"status\":\"success\"}"
-

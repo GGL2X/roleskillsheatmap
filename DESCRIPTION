@@ -2,12 +2,12 @@ Package: roleskillsheatmap
 Type: Package
 Title: Role Skills Heatmap
 Version: 0.1.0
-Authors@R: c(
-    person("Gabriela GL", email = "luna24g@hotmail.com", role = c("aut", "cre")))
-Description: Provides a function to plot a role-skill importance heatmap using ggplot2.
+Authors@R: 
+    person("Gabriela GL", email = "luna24g@hotmail.com", role = c("aut", "cre"))
+Description: Provides a function to visualize the importance of skills across roles
+    using a heatmap created with ggplot2.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     ggplot2
 RoxygenNote: 7.3.3
