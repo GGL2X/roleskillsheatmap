@@ -1,3 +1,18 @@
+#' Create a role-skills heatmap
+#'
+#' This function takes a dataset of skills, roles, and values,
+#' and produces a heatmap visualization.
+#'
+#' @param data A data frame with columns: skill, Role, value
+#' @return A ggplot2 heatmap object
+#' @examples
+#' test <- data.frame(
+#'   skill = c("R", "Python", "SQL"),
+#'   Role = c("Data Scientist", "Data Engineer", "Analyst"),
+#'   value = c(5, 3, 4)
+#' )
+#' role_skills_heatmap(test)
+#' @export
 role_skills_heatmap <- function(data) {
     library(ggplot2)
     data$value <- as.numeric(data$value)  # match lowercase column name
