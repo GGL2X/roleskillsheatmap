@@ -1,7 +1,7 @@
 Package: roleskillsheatmap
 Type: Package
 Title: Role Skills Heatmap
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: 
     person("Gabriela GL", email = "luna24g@hotmail.com", role = c("aut", "cre"))
 Description: Provides a function to visualize the importance of skills across roles
