@@ -21,7 +21,7 @@ role_skills_heatmap <- function(data) {
     ggplot2::ggplot(data, ggplot2::aes(x = Role, y = skill, fill = value)) +
         ggplot2::geom_tile(color = "white") +
         ggplot2::scale_fill_gradientn(
-            colors = c("#f2e6ff", "#c084fc", "#9333ea", "#4b0082"),
+            colors = c("#e6dcff", "#a100ff", "#7500c0", "#460073"),
             name = "Importance",
             breaks = c(0, 1, 2, 3),
             labels = importance_labels
