@@ -23,7 +23,7 @@ role_skills_heatmap <- function(data) {
     ggplot2::ggplot(data, ggplot2::aes(x = Role, y = skill, fill = value)) +
         ggplot2::geom_tile(color = "white", size = 0.5, width = 0.95, height = 0.95) +
         ggplot2::scale_fill_gradientn(
-            colors = c("#f5f5f5", "#e6dcff", "#a100ff", "#7500c0", "#460073"),
+            colors = c("#e6dcff","#c2a3ff" "#a100ff", "#7500c0", "#460073"),
             values = scales::rescale(c(0, 1, 2, 3)),
             name = "Importance",
             breaks = c(0, 1, 2, 3),
