@@ -21,7 +21,7 @@ role_skills_heatmap <- function(data) {
     importance_labels <- c("Not required", "Nice to have", "Important", "Critical")
 
     ggplot2::ggplot(data, ggplot2::aes(x = Role, y = skill, fill = value)) +
-        ggplot2::geom_tile(color = "white", size = 0.5, width = 1, height = 0.95) +
+        ggplot2::geom_tile(color = "white", size = 0.5, width = 1.2, height = 1.2) +
         ggplot2::scale_fill_gradientn(
             colors = c("#e6dcff", "#c2a3ff", "#a100ff", "#7500c0", "#460073"),
             values = scales::rescale(c(0, 1, 2, 3)),
@@ -30,7 +30,7 @@ role_skills_heatmap <- function(data) {
             labels = importance_labels
         ) +
         ggplot2::theme_minimal(base_size = 14) +
-        ggplot2::theme(aspect.ratio = 1) +
+        ggplot2::theme(aspect.ratio = 0.8) +
         ggplot2::theme(
             axis.text.x = ggplot2::element_text(
                 angle = 40, hjust = 1, size = 11,
