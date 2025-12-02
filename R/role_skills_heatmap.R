@@ -30,7 +30,7 @@ role_skills_heatmap <- function(data) {
             labels = importance_labels
         ) +
         ggplot2::theme_minimal(base_size = 14) +
-        ggplot2::theme(aspect.ratio = 0.8) +
+        ggplot2::theme(aspect.ratio = 1) +
         ggplot2::theme(
             axis.text.x = ggplot2::element_text(
                 angle = 40, hjust = 1, size = 11,
