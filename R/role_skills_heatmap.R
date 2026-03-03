@@ -28,16 +28,14 @@ role_skills_heatmap <- function(data) {
 
     importance_labels <- c("Not required", "Nice to have", "Important", "Critical")
 
-    tile_width  <- 1 / length(unique(data$Role))
-    tile_height <- 1 / length(unique(data$skill))
+    n_roles  <- length(unique(data$Role))
+    n_skills <- length(unique(data$skill))
 
-    dynamic_aspect <- length(unique(data$skill)) / length(unique(data$Role))
+    raw_aspect <- n_skills / pmax(1, n_roles)
+    dynamic_aspect <- max(0.4, min(2.5, raw_aspect))
 
     ggplot2::ggplot(data, ggplot2::aes(x = Role, y = skill, fill = value)) +
-        ggplot2::geom_tile(
-            color = "white", size = 0.5,
-            width = tile_width, height = tile_height
-        ) +
+        ggplot2::geom_tile(color = "white", size = 0.5) +
         ggplot2::scale_fill_gradientn(
             colors = c("#e6dcff", "#c2a3ff", "#a100ff", "#7500c0", "#460073"),
             values = scales::rescale(c(0, 1, 2, 3)),
