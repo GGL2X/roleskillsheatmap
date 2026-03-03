@@ -34,6 +34,12 @@ role_skills_heatmap <- function(data) {
     raw_aspect <- n_skills / pmax(1, n_roles)
     dynamic_aspect <- max(0.4, min(2.5, raw_aspect))
 
+    x_text_size <- if (n_roles > 12) 8 else 11
+    y_text_size <- if (n_skills > 15) 8 else 11
+
+    bottom_margin <- if (n_roles > 12) 20 + (n_roles - 12) * 1.5 else 12
+    left_margin   <- if (n_skills > 15) 12 + (n_skills - 15) * 1.2 else 12
+
     ggplot2::ggplot(data, ggplot2::aes(x = Role, y = skill, fill = value)) +
         ggplot2::geom_tile(color = "white", size = 0.5) +
         ggplot2::scale_fill_gradientn(
@@ -43,16 +49,19 @@ role_skills_heatmap <- function(data) {
             breaks = c(0, 1, 2, 3),
             labels = importance_labels
         ) +
+
+        ggplot2::scale_x_discrete(expand = c(0, 0)) +
+        ggplot2::scale_y_discrete(expand = c(0, 0)) +
         ggplot2::theme_minimal(base_size = 14) +
         ggplot2::theme(aspect.ratio = dynamic_aspect) +
         ggplot2::theme(
             axis.text.x = ggplot2::element_text(
-                angle = 40, hjust = 1, size = 11,
-                margin = ggplot2::margin(t = 12)
+                angle = 40, hjust = 1, size = x_text_size,
+                margin = ggplot2::margin(t = bottom_margin)
             ),
             axis.text.y = ggplot2::element_text(
-                size = 11,
-                margin = ggplot2::margin(r = 12)
+                size = y_text_size,
+                margin = ggplot2::margin(r = left_margin)
             ),
             axis.title.x = ggplot2::element_text(
                 size = 13,
@@ -66,7 +75,8 @@ role_skills_heatmap <- function(data) {
                 size = 16, face = "bold",
                 margin = ggplot2::margin(b = 15)
             ),
-            panel.grid = ggplot2::element_blank()
+            panel.grid = ggplot2::element_blank(),
+            plot.margin = ggplot2::margin(t = 10, r = 10, b = bottom_margin + 5, l = left_margin + 5)
         ) +
         ggplot2::labs(
             title = "Role-skill Importance Heatmap",
